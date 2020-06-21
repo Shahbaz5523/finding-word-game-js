@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Finding Word</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="nav" style="display: flex;">
+        <h3 style="position: absolute; left: 20px;">Level <span id="leve">1</span></h3>
+        <h1 id="myWord" style="text-align: center; margin: auto; font-family:cursive; font-size: 40px;"></h1>
+        <h3 style="position: absolute; right: 200px;">Words Left : <span id="NumberOfWords">17</span></h3>
+        <h3 style="position: absolute; right: 20px;">Time: <span id="Time">0</span></h3>
+    </div>
+
+    <div id="shuffle"></div>
+
+    <input type="hidden" id="WordIndex"/>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            $(function () {
+                var parent = $("#shuffle");
+                var divs = parent.children();
+                while (divs.length) {
+                    let currentIndex = Math.floor(Math.random() * divs.length);
+                    parent.append(divs.splice(currentIndex, 1)[0]);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
